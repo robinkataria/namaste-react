@@ -1,21 +1,26 @@
-// // Create and add element in a div using JS
+import React from "react";
+import ReactDOM from "react-dom/client";
 
+// // Create+add element in a div using JS
 // const root = document.querySelector("#root");
 // const heading = document.createElement("h1");
 // heading.setAttribute("id", "heading");
 // heading.innerText = "Hello World from JavaScript";
 // root.appendChild(heading);
 
-// Create and add element in a div using React
-
-//3 params (tag, attributes object, content)
+// Create+add element in a div using React
+// 3 params (tag, attributes object, content)
 const heading = React.createElement(
   "h1",
   { id: "heading" },
   "Hello World from React!"
 );
-const root = ReactDOM.createRoot(document.getElementById("root")); //Define root
-root.render(heading); //render/add the newly created element
+
+// Define root
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+//render/add the newly created element
+root.render(heading);
 
 //Nested HTML structure
 const parent = React.createElement("div", { id: "parent" }, [
