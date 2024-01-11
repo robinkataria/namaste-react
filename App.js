@@ -27,4 +27,36 @@ const parent = React.createElement("div", { id: "parent" }, [
   React.createElement("p", { id: "para1" }, "I am Para 1"),
   React.createElement("p", { id: "para2" }, "I am para 2"),
 ]);
-root.render(parent);
+// root.render(parent);
+
+// ReactElement using JSX
+const titleElement = <h1 className="title">Calculator</h1>;
+
+// React Functinal Component
+const SubTitleComponent = function () {
+  return (
+    <>
+      <h3>Mini-Calculator for Addition</h3>
+      <h5>Made in India</h5>
+    </>
+  );
+};
+
+// React Functinal Component using arrow function
+const ResultComponent = () => (
+  <>
+    <label>Result = </label>
+    {10 + 20}
+  </>
+);
+
+// Functinal component nesting another components and element.
+const DisplayComponent = () => (
+  <>
+    {titleElement}
+    {SubTitleComponent()}
+    <ResultComponent />
+  </>
+);
+
+root.render(<DisplayComponent />);
