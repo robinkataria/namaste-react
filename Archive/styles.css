@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: auto;
+    min-height: 100vh;
+    background-image: linear-gradient(135deg, rgba(135, 207, 235, 0.756), rgba(255, 255, 0, 0.435), rgba(255, 255, 255, 0.938));
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#root {
+    padding: 16px;
+    color: brown;
+    width: 150px;
+    background-color: rgba(255, 228, 196, 0.36);
+}
