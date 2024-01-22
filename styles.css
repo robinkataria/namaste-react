@@ -45,4 +45,14 @@
     margin: 16px;
     padding: 16px;
     border-radius: 8px;
+    border: 1px solid rgb(204, 204, 204);
+    border-style: hidden;
+}
+
+.card:hover {
+    border-style: solid;
+}
+
+.card__img {
+    border-radius: 8px;
 }

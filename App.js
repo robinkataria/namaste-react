@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import logo from "./public/images/byte_bite_logo.png";
 import "./styles.css";
+import restaurants from "./data.js";
 
 const Header = () => {
   return (
@@ -17,33 +18,35 @@ const Header = () => {
   );
 };
 
-const Card = () => {
+const ResCard = (props) => {
+  let { id, name, cloudinaryImageId, areaName, cuisines, avgRating } =
+    props.resData.info;
+  let { deliveryTime } = props.resData.info.sla;
   return (
     <div className="card">
-      <img src="https://picsum.photos/200/150"></img>
-      <h3>Burger King</h3>
-      <h4>Burgers, American</h4>
-      <p>4.4 stars</p>
-      <p>35 mins</p>
+      <img
+        className="card__img"
+        src={
+          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_204,h_128,c_fill/" +
+          cloudinaryImageId
+        }
+      ></img>
+      <h3>{name}</h3>
+      <h4>
+        &#9734; {avgRating} • {deliveryTime} mins
+      </h4>
+      <p>{cuisines.join(", ")}</p>
+      <p>{areaName}</p>
     </div>
   );
 };
 
-const CardContainer = () => {
+const ResCardContainer = (props) => {
   return (
     <div className="card-container">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {restaurants.map((restaurant) => {
+        return <ResCard key={restaurant.info.id} resData={restaurant} />;
+      })}
     </div>
   );
 };
@@ -56,7 +59,7 @@ const Body = () => {
         className="body__search"
       ></input>
       <button>Search</button>
-      <CardContainer />
+      <ResCardContainer />
     </div>
   );
 };
